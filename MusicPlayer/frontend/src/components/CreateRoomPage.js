@@ -12,9 +12,27 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 
 export default class CreateRoomPage extends Component {
+  defaultVotes = 2;
+
   constructor(props) {
     super(props);
+    this.state = {
+      guestCanPause: true,
+      votesToSkip: this.defaultVotes,
+    };
   }
+
+    handleVotesChnage(e) {
+      this.setState({
+        votesToSkip : e.target.value,
+      })
+    }
+
+    handleGuestCanPauseChange(e) {
+      this.setState({
+        guestCanPause: e.target.value === "true" ? true : false,
+      });
+    }
 
   render() {
     return( 
